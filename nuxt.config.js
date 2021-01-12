@@ -15,8 +15,13 @@ export default {
     ]
   },
 
+  router: {
+		base: process.env.NODE_ENV === 'development' ? '/' : '/20days',
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/scss/style.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -30,7 +35,12 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/moment', { defaultLocale: 'de', locales: ['de'] }]
   ],
+
+  tailwindcss: {
+    exposeConfig: true
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -38,5 +48,6 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    
   }
 }
